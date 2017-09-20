@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "count_words.c"
+#include "count_words.h"
 
 int main() {
 
@@ -7,6 +7,6 @@ int main() {
 
     printf("Insert string: ");
     scanf("%[^\n]%*c", s);
-    count_words(s);
+    printf("Number of words: %d\n", count_words(s));
     return 0;
 }
