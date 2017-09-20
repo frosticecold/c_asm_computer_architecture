@@ -1,16 +1,14 @@
-#include <math.h>
-#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 
 int countStringSize(char *str) {
   int size = 0;
-  bool finished = false;
+  short finished = 0;
 
-  while (finished == false) {
+  while (finished == 0) {
     char ch = str[size];
     if (ch == '\0') {
-      finished = true;
+      finished = 1;
     } else {
       size++;
     }
