@@ -1,11 +1,16 @@
 #include <stdio.h>
-#include "average_words.c"
+#include "average_words.h"
 
 int main() {
 
-    char string[] = "12345";
-    char string1[] = "12345";
+    char string_a[10];
+    char string_b[10];
+
+    printf("Enter the first number: ");
+    scanf("%s", string_a);
+    printf("Enter the second number: ");
+    scanf("%s", string_b);
     
-    printf("Average: %i\n", average_words(string, string1));
+    printf("Average: %i\n", average_words(string_a, string_b));
     return 0;
 }

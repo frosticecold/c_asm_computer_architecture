@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "fill_vector.c"
+#include "fill_vector.h"
 
 int main() {
     int vec[30], sum = 0;
