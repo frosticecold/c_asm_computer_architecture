@@ -2,17 +2,16 @@
 #include <string.h>
 
 int count_words(char *str) {
-    int count = 0,i,len;
-    char lastC;
-    len=strlen(str);
-    if(len > 0){
-        lastC = str[0];
+  int count = 0, i;
+  if (str[0] != '\0') {
+    for (i = 0; str[i] != '\0'; i++) {
+      if (str[i] == ' ') {
+        count++;
+      }
     }
-    for(i=0; i<=len; i++){
-        if(str[i]==' ' && lastC != ' ') {
-            count++;
-        }
-        lastC = str[i];
-    }
-    return count;
+  }
+  if (count > 0) {
+    count++;
+  }
+  return count;
 }
