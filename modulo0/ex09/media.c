@@ -1,6 +1,7 @@
 #include <stdio.h>
-int g_n;
-double g_v[100];
+
+int g_n = 2;
+double g_v[100] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
 double media(double n1, double n2) { 
     return (n1 + n2) / 2; 

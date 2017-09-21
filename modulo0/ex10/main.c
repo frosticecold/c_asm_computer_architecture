@@ -5,9 +5,10 @@
 
 int main() {
   char x[] = "I will master ARQCP";
-  printf("Size=%u\n", sizeof(x));
+  printf("Size =%u\n", sizeof(x));
   printf("Size =%u\n", size_string_wrong(x));
   printf("Size =%u\n", size_string_correct(x));
+  
   char y[25] = "I will master ARQCP";
   printf("\nSize =%u\n", sizeof(y));
   printf("Size =%u\n", size_string_wrong(y));
