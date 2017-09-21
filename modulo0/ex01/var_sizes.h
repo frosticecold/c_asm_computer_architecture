@@ -1,6 +1,5 @@
 #include <stdio.h>
-#define BYTE_TO_BITS 8
-
+#include <limits.h>
 void var_sizes() {
     char c;
     int i;
@@ -8,9 +7,9 @@ void var_sizes() {
     float f;
     double d;
 
-    printf("Size of Char: %i bits\n", sizeof(c)*BYTE_TO_BITS);
-    printf("Size of Int: %i bits\n", sizeof(i)*BYTE_TO_BITS);
-    printf("Size of Long Int: %i bits\n", sizeof(li)*BYTE_TO_BITS);
-    printf("Size of Float: %i bits\n", sizeof(f)*BYTE_TO_BITS);
-    printf("Size of Double: %i bits\n\n", sizeof(d)*BYTE_TO_BITS);
+    printf("Size of Char: %i bits\n", sizeof(c)*CHAR_BIT);
+    printf("Size of Int: %i bits\n", sizeof(i)*CHAR_BIT);
+    printf("Size of Long Int: %i bits\n", sizeof(li)*CHAR_BIT);
+    printf("Size of Float: %i bits\n", sizeof(f)*CHAR_BIT);
+    printf("Size of Double: %i bits\n\n", sizeof(d)*CHAR_BIT);
 }
