@@ -58,6 +58,18 @@ int isHexadecimal(char *str) {
   return isValid;
 }
 
+int isDecimal(char *str) {
+  const char li = '0', ls = '9';
+  int isValid = 1;
+  for (int i = 0; str[i] != '\0'; i++) {
+    if (str[i] < li || str[i] > ls) {
+      isValid = 0;
+      break;
+    }
+  }
+  return isValid;
+}
+
 void runVerifyType(char *str) {
 
   /*Three possible values,
@@ -71,12 +83,14 @@ void runVerifyType(char *str) {
   const int BINARY_FLAG = 0;
   const int OCTAL_FLAG = 1;
   const int HEX_FLAG = 2;
+  const int DEC_FLAG = 3;
   const int SUCCESS = 1;
   const char MSG[] = "The number is: ";
   const char NONE_MSG[] = "None";
   const char BINARY_MSG[] = "Binary";
   const char OCTAL_MSG[] = "Octal";
   const char HEX_MSG[] = "Hexadecimal";
+  const char DEC_MSG[] = "Decimal";
   int typeOfNumber = -1;
 
   if (isBinary(str) == SUCCESS) {
@@ -85,8 +99,14 @@ void runVerifyType(char *str) {
     if (isOctal(str) == SUCCESS) {
       typeOfNumber = OCTAL_FLAG;
     } else {
-      if (isHexadecimal(str) == SUCCESS) {
-        typeOfNumber = HEX_FLAG;
+      if (isDecimal(str) == SUCCESS) {
+        typeOfNumber = DEC_FLAG;
+      } else {
+        if (isHexadecimal(str) == SUCCESS) {
+          typeOfNumber = HEX_FLAG;
+        } else {
+          typeOfNumber = FAILED_FLAG;
+        }
       }
     }
   }
@@ -102,6 +122,9 @@ void runVerifyType(char *str) {
     break;
   case 2:
     printf("%s%s\n", MSG, HEX_MSG);
+    break;
+  case 3:
+    printf("%s%s\n", MSG, DEC_MSG);
     break;
   }
 }
