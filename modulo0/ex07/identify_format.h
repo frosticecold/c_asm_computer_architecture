@@ -1,7 +1,7 @@
 #include <stdio.h>
 // Verify if a string is Binary
-int isBinary(char *str) {
-  const char li = '0', ls = '1';
+
+int searchRange(char *str, int li, int ls) {
   int isValid = 1;
   for (int i = 0; str[i] != '\0'; i++) {
     if (str[i] < li || str[i] > ls) {
@@ -10,44 +10,27 @@ int isBinary(char *str) {
     }
   }
   return isValid;
+}
+int isBinary(char *str) {
+  const char li = '0', ls = '1';
+  return searchRange(str, li, ls);
 }
 
 // Verify if a string is Octal
 int isOctal(char *str) {
   const char li = '0', ls = '7';
-  int isValid = 1;
-  for (int i = 0; str[i] != '\0'; i++) {
-    if (str[i] < li || str[i] > ls) {
-      isValid = 0;
-      break;
-    }
-  }
-  return isValid;
+  return searchRange(str, li, ls);
 }
 
 // Verify if a string is Hexadecimal
 int isHexadecimal(char *str) {
   const char li = '0', ls = 'F';
-  int isValid = 1;
-  for (int i = 0; str[i] != '\0'; i++) {
-    if (str[i] < li || str[i] > ls) {
-      isValid = 0;
-      break;
-    }
-  }
-  return isValid;
+  return searchRange(str, li, ls);
 }
 
 int isDecimal(char *str) {
   const char li = '0', ls = '9';
-  int isValid = 1;
-  for (int i = 0; str[i] != '\0'; i++) {
-    if (str[i] < li || str[i] > ls) {
-      isValid = 0;
-      break;
-    }
-  }
-  return isValid;
+  return searchRange(str, li, ls);
 }
 
 void runVerifyType(char *str) {
@@ -65,8 +48,8 @@ void runVerifyType(char *str) {
   const int HEX_FLAG = 2;
   const int DEC_FLAG = 3;
   const int SUCCESS = 1;
-  const char MSG[] = "The number is: ";
-  const char NONE_MSG[] = "None";
+  const char MSG[] = "The number";
+  const char NONE_MSG[] = "not valid type";
   const char BINARY_MSG[] = "Binary";
   const char OCTAL_MSG[] = "Octal";
   const char HEX_MSG[] = "Hexadecimal";
@@ -92,19 +75,19 @@ void runVerifyType(char *str) {
   }
   switch (typeOfNumber) {
   case -1:
-    printf("%s%s\n", MSG, NONE_MSG);
+    printf("%s %s %s\n", MSG, str, NONE_MSG);
     break;
   case 0:
-    printf("%s%s\n", MSG, BINARY_MSG);
+    printf("%s %s %s\n", MSG, str, BINARY_MSG);
     break;
   case 1:
-    printf("%s%s\n", MSG, OCTAL_MSG);
+    printf("%s %s %s\n", MSG, str, OCTAL_MSG);
     break;
   case 2:
-    printf("%s%s\n", MSG, HEX_MSG);
+    printf("%s %s %s\n", MSG, str, HEX_MSG);
     break;
   case 3:
-    printf("%s%s\n", MSG, DEC_MSG);
+    printf("%s %s %s\n", MSG, str, DEC_MSG);
     break;
   }
 }
