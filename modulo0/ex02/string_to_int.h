@@ -25,14 +25,6 @@ int convertCharToInt(char ch) {
   return number;
 }
 
-int myPow(int base, int exp) {
-  int num = 1;
-  for (int i = 0; i < exp; i++) {
-    num *= base;
-  }
-  return num;
-}
-
 int string_to_int(char *str) {
 
   // Solução do Rui
@@ -47,10 +39,18 @@ int string_to_int(char *str) {
   if (stringSize > 0) {
     expoente = stringSize - 1;
   }
-  for (int i = 0; i < stringSize; i++) {
+  int i = 0;
+  if (str[0] == '-') {
+    i = 1;
+  }
+  for (; i < stringSize; i++) {
     int converted = convertCharToInt(str[i]);
-    integerConverted += converted * myPow(10, expoente);
+    integerConverted = integerConverted * 10 + converted;
     expoente--;
   }
-  return integerConverted;
+  if (str[0] == '-') {
+    return integerConverted * -1;
+  } else {
+    return integerConverted;
+  }
 }
