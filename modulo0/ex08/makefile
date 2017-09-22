@@ -6,3 +6,8 @@ media.o: media.c
 
 main.o: main.c
 	gcc -c main.c -o main.o
+
+run: pmedia
+	./pmedia
+clean:
+	rm *.o pmedia
