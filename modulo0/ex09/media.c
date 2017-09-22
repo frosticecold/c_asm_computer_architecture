@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int g_n = 2;
+int g_n = 6;
 double g_v[100] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
 double media(double n1, double n2) { 
@@ -12,7 +12,7 @@ double average_vetor(double v[], int n) {
     for(int i=0; i<n; i++) {
         sum+= v[i];
     }
-    return (double)sum/(double)n;
+    return sum/n;
 }
 
 double media_vetor_g () {
@@ -21,5 +21,5 @@ double media_vetor_g () {
     for(i=0; i<g_n; i++) {
         sum+=g_v[i];
     }
-    return (double)sum/(double)g_n;
+    return sum/g_n;
 }
