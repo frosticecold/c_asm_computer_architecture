@@ -39,15 +39,20 @@ int string_to_int(char *str) {
   if (stringSize > 0) {
     expoente = stringSize - 1;
   }
+  // Vamos verificar o primeiro caracter
   int i = 0;
+  //Se for um número negativo, começamos a ler o número aseguir;
   if (str[0] == '-') {
     i = 1;
   }
+  //Vamos converter todos os caracteres para numero e criar um número novo
   for (; i < stringSize; i++) {
     int converted = convertCharToInt(str[i]);
     integerConverted = integerConverted * 10 + converted;
     expoente--;
   }
+  //Se o número da string for negativo, múltiplicamos o resultado
+  //do número obtido por -1
   if (str[0] == '-') {
     return integerConverted * -1;
   } else {
