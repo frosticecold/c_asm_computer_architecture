@@ -11,6 +11,6 @@ int main() {
     printf("Enter the second number: ");
     scanf("%s", string_b);
     
-    printf("Average: %i\n", average_words(string_a, string_b));
+    printf("Average: %.2f\n", average_words(string_a, string_b));
     return 0;
 }
