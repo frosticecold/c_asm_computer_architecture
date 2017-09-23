@@ -3,8 +3,9 @@
 #include "table.h"
 
 int main() {
-    printf("coef: %d\n", coef(10,2));
+    const int n=10,k=10;
+    printf("coef: %d\n", coef(n,k));
 
-    create_table();
+    createPascalTriangle(n,k);
     return 0;
 }
