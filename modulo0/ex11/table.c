@@ -1,5 +1,6 @@
-#include "coef.h"
 #include <stdio.h>
+#include "coef.h"
+
 
 void create_table() {
   int t = 0, i, f, d = 10, space;

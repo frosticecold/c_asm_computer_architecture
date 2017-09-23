@@ -1,3 +1,4 @@
+
 int coef(int n, int k) {
   if (k == 0)
     return 1;
