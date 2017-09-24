@@ -31,15 +31,19 @@ int isHexadecimal(char *str) {
   const char liACl = 'A', liACh = 'F';
   int isValid = 1;
   for (int i = 0; str[i] != '\0'; i++) {
-    // if ((str[i] < lin || str[i] > lsn))
-    //   if (str[i] < liAl || str[i] > liAh) {
-    //     if (str[i] < liACl || str[i] > liACh) {
-    //       {
-    //         isValid = 0;
-    //         break;
-    //       }
-    //     }
-    //   }
+
+    /* Verify if a char is between 0-9 e a-f e A-F
+        if ((str[i] < lin || str[i] > lsn))
+          if (str[i] < liAl || str[i] > liAh) {
+            if (str[i] < liACl || str[i] > liACh) {
+              {
+                isValid = 0;
+                break;
+              }
+            }
+          }
+          */
+    // Multiple conditions in one line
     if ((str[i] < lin || str[i] > lsn) && (str[i] < liAl || str[i] > liAh) &&
         (str[i] < liACl || str[i] > liACh)) {
       isValid = 0;
@@ -48,6 +52,7 @@ int isHexadecimal(char *str) {
   }
   return isValid;
 }
+
 int isDecimal(char *str) {
   const char li = '0', ls = '9';
   return searchRange(str, li, ls);
