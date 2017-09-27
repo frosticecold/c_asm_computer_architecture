@@ -1,1 +1,1 @@
-void lstous(char*);
+void lstous(char *);
