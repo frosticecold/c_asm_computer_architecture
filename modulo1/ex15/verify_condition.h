@@ -1,0 +1,1 @@
+int verify_condition(int *str, int n);

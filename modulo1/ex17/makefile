@@ -1,8 +1,8 @@
 #vars
-INCLUDES = frequencies.h
-SOURCES = frequencies.c main.c
-OBJFILES = frequencies.o main.o
-EXEC = ex14
+INCLUDES = swap.h
+SOURCES = swap.c main.c
+OBJFILES = swap.o main.o
+EXEC = ex17
 
 # regras de sufixo
 .SUFIXES : .c .o

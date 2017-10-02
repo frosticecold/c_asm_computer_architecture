@@ -1,8 +1,8 @@
 #vars
-INCLUDES = frequencies.h
-SOURCES = frequencies.c main.c
-OBJFILES = frequencies.o main.o
-EXEC = ex14
+INCLUDES = fill_array.h verify_condition.h
+SOURCES = fill_array.c verify_condition.c main.c
+OBJFILES = fill_array.o verify_condition.o main.o
+EXEC = ex15
 
 # regras de sufixo
 .SUFIXES : .c .o

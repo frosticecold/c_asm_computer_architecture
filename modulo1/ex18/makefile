@@ -1,8 +1,8 @@
 #vars
-INCLUDES = frequencies.h
-SOURCES = frequencies.c main.c
-OBJFILES = frequencies.o main.o
-EXEC = ex14
+INCLUDES = compress_shorts.h
+SOURCES = compress_shorts.c main.c
+OBJFILES = compress_shorts.o main.o
+EXEC = ex18
 
 # regras de sufixo
 .SUFIXES : .c .o
