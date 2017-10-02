@@ -14,5 +14,11 @@ int main() {
   int sum = sum_of_pair_elements(vec);
   // Suposta soma é 30
   printf("A soma de todos os elementos pares do vetor é: %d\n", sum);
+
+  int vec2[12] = {11, 1, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
+  sum = sum_of_pair_elements(vec2);
+  // Suposta soma é 40
+  printf("A soma de todos os elementos pares do vetor é: %d\n", sum);
+
   return 0;
 }
