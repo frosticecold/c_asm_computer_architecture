@@ -1,7 +1,7 @@
 #vars
-INCLUDES = find_word.h
-SOURCES = find_word.c main.c
-OBJFILES = find_word.o main.o
+INCLUDES = find_word.h c_low_to_upper.h
+SOURCES = find_word.c c_low_to_upper.c main.c
+OBJFILES = find_word.o c_low_to_upper.o main.o
 EXEC = ex19
 
 # regras de sufixo
