@@ -1,21 +1,21 @@
 #vars
-INCLUDES = fill_vector.h
-SOURCES = fill_vector.c main.c
-OBJFILES = fill_vector.o main.o
+INCLUDES = string_to_int.h fill_vector.h
+SOURCES = string_to_int.c fill_vector.c main.c
+OBJFILES = string_to_int.o fill_vector.o main.o
 EXEC = ex02
-
 # regras de sufixo
-.SUFIXES : .c .o
+.SUFFIXES : .c .o
+# como transformar um .c num .o ; $< -- nome do ficheiro
+.c.o:
+	gcc -Wall -g -c $<
 
-# como transformar um .c num .o ; $< --nome do ficheiro
-# $< reads from the standard input
-
-${EXEC} : ${OBJFILES}
+${EXEC}: ${OBJFILES}
 	gcc -Wall -g -o ${EXEC} ${OBJFILES}
 
-${OBJFILES} : ${SOURCES} ${INCLUDES}
+${OBJFILES}: ${SOURCES} ${INCLUDES}
 
-run: ${EXEC}
+run:  ${EXEC}
 	./${EXEC}
+
 clean:
 	rm -f ${OBJFILES} ${EXEC}

@@ -1,3 +1,5 @@
+#include "array_sort.h"
+
 void array_sort(int *vec, int n) {
   int temp = 0, i, j;
   for (i = 0; i < n; i++) {

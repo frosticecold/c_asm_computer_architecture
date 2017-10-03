@@ -5,17 +5,18 @@ OBJFILES = c_low_to_upper.o main.o
 EXEC = ex04
 
 # regras de sufixo
-.SUFIXES : .c .o
+.SUFFIXES : .c .o
+# como transformar um .c num .o ; $< -- nome do ficheiro
+.c.o:
+	gcc -Wall -g -c $<
 
-# como transformar um .c num .o ; $< --nome do ficheiro
-# $< reads from the standard input
-
-${EXEC} : ${OBJFILES}
+${EXEC}: ${OBJFILES}
 	gcc -Wall -g -o ${EXEC} ${OBJFILES}
 
-${OBJFILES} : ${SOURCES} ${INCLUDES}
+${OBJFILES}: ${SOURCES} ${INCLUDES}
 
-run: ${EXEC}
+run:  ${EXEC}
 	./${EXEC}
+
 clean:
 	rm -f ${OBJFILES} ${EXEC}

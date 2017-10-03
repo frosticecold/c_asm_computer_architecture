@@ -1,5 +1,4 @@
 #include "power_ref.h"
-#include <math.h>
 #include <stdio.h>
 
 void power_ref(int *x, int y) {
