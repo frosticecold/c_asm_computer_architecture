@@ -1,0 +1,2 @@
+No ex20
+Encontra-se a copiar duas vezes o último endereço da palavra encontrada
