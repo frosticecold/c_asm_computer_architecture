@@ -1,7 +1,7 @@
 #vars
-INCLUDES = capitalize_sentence.h
-SOURCES = capitalize_sentence.c main.c
-OBJFILES = capitalize_sentence.o main.o
+INCLUDES = capitalize_sentence.h c_low_to_upper.h
+SOURCES = capitalize_sentence.c c_low_to_upper.c main.c
+OBJFILES = capitalize_sentence.o c_low_to_upper.o main.o
 EXEC = ex12
 
 # regras de sufixo

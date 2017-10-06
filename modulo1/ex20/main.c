@@ -6,9 +6,11 @@ int main() {
 
   // char str[300] = "Vamos contar quantas vezes aparecerem estas palavras,
   // vamos contar quantas vezes aparecem estas palavras, vamos";
-  char str[100] = "Vamos a vamos a ,vamos";
+  char str[100] = "Vamos a vamos a, vamos";
   char word[20] = "vamos";
   char *palavras[MAX_PALAVRAS_SIZE];
+
+  //printf("%p\n%p\n%p\n", &str[0], &str[8], &str[17]);
 
   lstous(str);
   lstous(word);

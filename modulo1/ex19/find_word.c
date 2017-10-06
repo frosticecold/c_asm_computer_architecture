@@ -2,11 +2,13 @@
 #include <stdlib.h>
 
 char *find_word(char *str, char *word, char *initial_addr) {
+  //Converter tudo para maiusculas para permitir encontrar palavras que estejam capitalizadas ou "mal escritas"
   lstous(str);
   lstous(word);
 
+  int dif = 'a' - 'A';
   int i, j = 0, index, found = 0;
-  while (&str[j] != initial_addr) {
+  while (str[j] != '\0' && str!=initial_addr) {
     j++;
   }
   index = j;
@@ -14,7 +16,6 @@ char *find_word(char *str, char *word, char *initial_addr) {
   while (str[index] != '\0') {
     //Se a letra na string for igual à letra inicial da palavra a procurar
     if (str[index] == word[0]) {
-      // || str[index] + dif == word[0] || str[index] - dif == word[0]
       // Encontrar a palavra total
       i = 0;
       found = 1;

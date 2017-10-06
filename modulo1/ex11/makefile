@@ -1,7 +1,7 @@
 #vars
-INCLUDES = palindrome.h
-SOURCES = palindrome.c main.c
-OBJFILES = palindrome.o main.o
+INCLUDES = palindrome.h c_low_to_upper.h
+SOURCES = palindrome.c c_low_to_upper.c main.c
+OBJFILES = palindrome.o c_low_to_upper.o main.o
 EXEC = ex11
 
 # regras de sufixo
