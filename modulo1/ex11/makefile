@@ -7,6 +7,9 @@ EXEC = ex11
 # regras de sufixo
 .SUFIXES : .c .o
 
+.c.o:
+	gcc -Wall -g -c $<
+
 # como transformar um .c num .o ; $< --nome do ficheiro
 # $< reads from the standard input
 
