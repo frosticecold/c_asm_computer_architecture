@@ -10,7 +10,7 @@ int main() {
   int i;
   printf("{");
   int vecIsize = vecSize / 2;
-  // Expected output is 170 136 66
+  // Expected output is 655370 524296 262146
   for (i = 0; i < vecIsize; i++) {
     printf("%d%s", vecI[i], (i < (vecIsize - 1)) ? ", " : "}\n");
   }
@@ -22,7 +22,7 @@ int main() {
   compress_shorts(vs2, vs2size, vi2);
   printf("{");
   int vi2size = (vs2size / 2);
-  // Expected output is 170 68 34 102 51
+  // Expected output is 655370 262148 131074 393222 196611
   for (i = 0; i < vi2size; i++) {
     printf("%d%s", vi2[i], (i < (vi2size - 1)) ? ", " : "}\n");
   }

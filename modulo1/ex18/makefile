@@ -9,6 +9,8 @@ EXEC = ex18
 
 # como transformar um .c num .o ; $< --nome do ficheiro
 # $< reads from the standard input
+.c.o:
+	gcc -Wall -g -c $<
 
 ${EXEC} : ${OBJFILES}
 	gcc -Wall -g -o ${EXEC} ${OBJFILES}
