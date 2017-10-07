@@ -1,5 +1,3 @@
-#include <string.h>
-
 void find_character(char *str, char c, int *vec) {
   int i, j = 0;
   // Percorrer a string ate ao fim
