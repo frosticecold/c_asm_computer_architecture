@@ -1,5 +1,10 @@
 #include "c_low_to_upper.h"
 
+/*
+Verifica se um dado caractére é alpha ou numérico
+Caso seja retorna 1
+Caso não seja retorna 0
+*/
 int isValidChar(char ch) {
   if (ch < '0') {
     return 0;
@@ -10,6 +15,9 @@ int isValidChar(char ch) {
   }
   return 0;
 }
+/*
+  Método que calcula o tamanho de uma string
+*/
 int strlength(char *str) {
   int s = 0;
   while (*str != '\0') {
@@ -18,6 +26,10 @@ int strlength(char *str) {
   }
   return s;
 }
+/*
+  Método que verifica se uma palavra é palindroma
+  Isto é, se é igual lida de trás para a frente e frente para trás
+*/
 int palindrome(char *str) {
   // Tamanho da String
   int length = strlength(str);

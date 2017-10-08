@@ -3,6 +3,9 @@
 
 #define difFromLowerCharUpperChar 'a' - 'A';
 
+/*
+Converte todos os caractéres de uma string para uppercase
+*/
 void lstous(char *str) {
   int i = 0;
   while (str[i] != '\0') {
@@ -12,7 +15,10 @@ void lstous(char *str) {
     i++;
   }
 }
-
+/*
+Converte todos os caractéres de uma string para uppercase
+usando aritmética de apontadores
+*/
 void lstous_pointer(char *str) {
   while (*str != '\0') {
     if (*str >= 'a' && *str <= 'z') {
