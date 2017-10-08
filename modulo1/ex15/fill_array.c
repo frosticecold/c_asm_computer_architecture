@@ -9,6 +9,6 @@ void fill_array(int *vec, int n) {
   const int MAX_VALUE = 21;
   srand(time(NULL));
   for (i = 0; i < n; i++) {
-    vec[i] = (rand() % MAX_VALUE);
+    *(vec + i) = (rand() % MAX_VALUE);
   }
 }
