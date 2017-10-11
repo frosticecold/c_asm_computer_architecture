@@ -1,6 +1,7 @@
 .section .data
  .global op1
  .global op2
+ .global op3
  .global res
 
 .section .text

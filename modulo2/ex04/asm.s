@@ -3,9 +3,13 @@
  .global op2
  .global res
 
+CONST:
+    .long 10
+
 .section .text
  .global sum # int sum(void)
  .global sumsub # int sumsub(void)
+ .global subconst # int subconst(void)
  sum:
     # prologue
     pushl %ebp # save previous stack frame pointer
@@ -32,3 +36,24 @@ sumsub:
     movl %ebp, %esp # restore the previous stack pointer ("clear" the stack)
     popl %ebp # restore the previous stack frame pointer
     ret
+subconst:
+    #prologue
+    pushl %ebp
+    movl %esp, %ebp
+
+    movl op1, %ebx
+    subl CONST,%ebx
+
+    movl op2, %ecx
+    movl CONST,%edx
+
+    subl %ecx,%edx
+
+    subl %edx,%ebx
+    movl %ebx,%eax
+
+    movl %ebp, %esp
+    popl %ebp
+    ret
+
+    

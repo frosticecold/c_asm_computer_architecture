@@ -7,6 +7,12 @@ EXEC = ex04
 # regras de sufixo
 .SUFIXES : .c .o .s
 
+.c.o:
+	gcc -Wall -g -c $<
+	
+.s.o:
+	gcc -Wall -g -c $<
+
 # como transformar um .c num .o ; $< --nome do ficheiro
 # $< reads from the standard input
 
