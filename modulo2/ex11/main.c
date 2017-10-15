@@ -9,19 +9,19 @@ int main() {
   op32b = 2;
 
   char result = isMultiple();
-  printf("Para %d/%d divisivel?\n",op32a,op32b);
-  printf("É divisivel:%d\n",result);
+  printf("Para %d/%d é multiplo?\n",op32a,op32b);
+  printf("É multiplo:%d\n",result);
 
   op32a = 6;
   op32b = 3;
 
   result = isMultiple();
-  printf("Para %d/%d divisivel?\n",op32a,op32b);
-  printf("É divisivel:%d\n",result);
+  printf("Para %d/%d é multiplo?\n",op32a,op32b);
+  printf("É multiplo:%d\n",result);
 
   op32a = 7;
   op32b = 3;
   result = isMultiple();
-  printf("Para %d/%d divisivel?\n",op32a,op32b);
-  printf("É divisivel:%d\n",result);
+  printf("Para %d/%d é multiplo?\n",op32a,op32b);
+  printf("É multiplo:%d\n",result);
 }
