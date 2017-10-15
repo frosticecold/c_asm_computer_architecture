@@ -3,14 +3,14 @@
 
 .section .text
   .global function
-function: # (((((num + 1) * 3) + 12) / 3 ) + 5 ) - num
+function: # (((((num - 1) * 3) + 12) / 3 ) + 5 ) - num
     # prologue
     pushl %ebp
     movl %esp,%ebp
 
     movl op, %eax
     movl %eax, %ebx
-    inc %eax
+    dec %eax
 
     imul $3, %eax
 
@@ -23,7 +23,13 @@ function: # (((((num + 1) * 3) + 12) / 3 ) + 5 ) - num
     addl $5, %eax
     
     subl %ebx, %eax
+    jo output_overflow
+    jmp fim
+output_overflow:
+  movl $-1,%eax
+  jmp fim
 
+fim:
     # epilogue
 
     movl %ebp,%esp
