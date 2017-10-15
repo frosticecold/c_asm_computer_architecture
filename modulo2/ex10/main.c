@@ -23,14 +23,14 @@ int main() {
   // 1000 0000 0000 0000 0010 0111 0000 1111
   // 0 1000 0000 0000 0000 0010 0111 0000 1111
   // 2147483647 + 10000=
-  // 2147493647
+  // 2147493647 existe overflow, a flag vai ativar
   result = sum2intscheck();
   printf("%lld\n", result);
 
   op32b = 2147483647;
 
   //2147483647 + 2147483647
-  //4294967294
+  //4294967294 Existe overflow, a flag vai ativar
   result = sum2intscheck();
   printf("%lld\n", result);
 }
