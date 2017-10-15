@@ -19,13 +19,8 @@ sum: # op1 + op2
     movl op2, %ebx
 
     addl %ebx, %eax
-
-    # epilogue
-
-    movl %ebp,%esp
-    popl %ebp
-
-    ret
+    jo output_overflow
+    jmp fim
 
 subtract: # op1 - op2
     pushl %ebp
@@ -35,11 +30,8 @@ subtract: # op1 - op2
     movl op2, %ebx
 
     subl %ebx, %eax
-
-    movl %ebp, %esp
-    popl %ebp
-
-    ret
+    jo output_overflow
+    jmp fim
 
 multiply: # op1 * op2
 
@@ -50,8 +42,8 @@ multiply: # op1 * op2
     movl op2, %ebx
 
     imul %ebx, %eax
-
-    ret
+    jo output_overflow
+    jmp fim
 
 divide: # op1 / op2
 
@@ -60,7 +52,33 @@ divide: # op1 / op2
 
     movl op1, %eax
     movl op2, %ebx
+    movl $0, %edx
 
-    divl %ebx
+    idiv %ebx
+
+    jmp fim
+
+modulus: # op1 % op2
+
+    pushl %ebp
+    movl %esp,%ebp
+
+    movl op1,%eax
+    movl op2,%ebx
+    movl $0,%edx
+
+    idiv %ebx
+    movl %edx,%eax
+
+    jmp fim
+
+output_overflow:
+    movl $-1,%eax
+    jmp fim
+
+fim: # fim
+    # epilogue
+    movl %ebp, %esp
+    popl %ebp
 
     ret
