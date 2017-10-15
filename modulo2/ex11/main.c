@@ -1,0 +1,27 @@
+#include "asm.h"
+#include <stdio.h>
+
+int op32a = 0, op32b = 0;
+
+int main() {
+
+  op32a = 4;
+  op32b = 2;
+
+  char result = isMultiple();
+  printf("Para %d/%d divisivel?\n",op32a,op32b);
+  printf("É divisivel:%d\n",result);
+
+  op32a = 6;
+  op32b = 3;
+
+  result = isMultiple();
+  printf("Para %d/%d divisivel?\n",op32a,op32b);
+  printf("É divisivel:%d\n",result);
+
+  op32a = 7;
+  op32b = 3;
+  result = isMultiple();
+  printf("Para %d/%d divisivel?\n",op32a,op32b);
+  printf("É divisivel:%d\n",result);
+}
