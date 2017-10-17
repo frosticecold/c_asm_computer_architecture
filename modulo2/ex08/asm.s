@@ -6,6 +6,7 @@
 
  .section .text
   .global specialsum
+
 specialsum:
     # prologue
     pushl %ebp
@@ -18,27 +19,19 @@ specialsum:
     movl $0,%edx
 
     # carregar os valores para os registos
-    mov op16,%ax
-    mov op8,%dl
+    movb op8,%al
+    movw op16,%bx
     
-    # adicionar a eax o edx
-    addl %edx,%eax
-    # limpar edx
-    movl $0,%edx
-    
-    # adicionar o carry a edx
-    adcl $0,%edx
+    # adicionar a eax o ebx
+    addl %ebx,%eax
+    # limpar ebx
+    movl $0,%ebx
 
     # adicionar ambos valores 32bits a ebx
     movl op32a,%ebx
-    addl op32b,%ebx
-    # adicionar o carry a ecx
-    adcl $0,%ecx
-
-    # subtrair a eax ebx
+    movl op32b, %ecx
     subl %ebx,%eax
-    # subtrair o carry de edx a ecx
-    sbbl %ecx,%edx
+    addl %ecx, %eax
 
 
     movl %ebp,%esp

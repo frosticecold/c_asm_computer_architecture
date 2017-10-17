@@ -22,13 +22,13 @@ int main() {
 
     // op1 + op2 - op3 + op4
     op8 = 127;
-    op16 = 32767;
-    //op8 + op16 = 32894
-    op32a = 100000;
-    op32b = 200000;
-    //op32a + op32b = 300 000
-
-    //Resultado -267 106
+    op16 = 30767;
+    //op8 + op16 = 30894
+    //100 0000
+    op32a = 1000000;
+    op32b = 2147483647;
+    //(op8 + op16 - op32a) = -969106
+    //-969106 + 2147483647 = 2146514541
     long long result = specialsum();
 
     printf("%lld\n",result);
