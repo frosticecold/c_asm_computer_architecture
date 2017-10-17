@@ -1,6 +1,10 @@
 .section .data
  .global current
  .global desired
+ VAR_DECREASE:
+    .int 120
+ VAR_INCREASE:
+    .int 180
 
 .section .text
   .global function
@@ -11,31 +15,36 @@ function: #
     pushl %ebp
     movl %esp,%ebp
 
-    movw current, %bx
-    mov desired, %edx
+    # limpa registos
+    movl $0,%ebx
+    movl $0,%edx
 
+    movw current, %bx
+    movw desired, %dx
+
+    # comparar temperaturas
     cmpw %bx, %dx
     jg increase
     je fim
     jl decrease
 
-decrease:
-    subw %dx,%bx
+decrease: # descer temperatura
+    sub %edx,%ebx
     movl %ebx, %eax
-    movl $120, %ecx
+    movl VAR_DECREASE, %ecx
     mul %ecx
     jmp fim
 
-increase:
-    subw %bx,%dx
+increase: # aumentar temperatura
+    sub %ebx,%edx
     movl %edx, %eax
-    movl $180, %ecx
+    movl VAR_INCREASE, %ecx
     mul %ecx
     jmp fim
 
 fim: # fim
     # epilogue
-    # movl %ecx,%eax
+    
     movl %ebp, %esp
     popl %ebp
 

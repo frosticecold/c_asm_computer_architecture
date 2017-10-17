@@ -11,8 +11,8 @@ int main() {
   // 0100 1001 0011 1110 0000
 
   // Resultado 300 000
-  long long result = sum2intscheck();
-  printf("%lld\n", result);
+  int result = sum2intscheck();
+  printf("%d\n", result);
   // 0111 1111 1111 1111 1111 1111 1111 1111
   op32a = 500000;
 
@@ -25,12 +25,12 @@ int main() {
   // 2147483647 + 10000=
   // 2147493647 existe overflow, a flag vai ativar
   result = sum2intscheck();
-  printf("%lld\n", result);
+  printf("%d\n", result);
 
   op32b = 2147483647;
 
   //2147483647 + 2147483647
   //4294967294 Existe overflow, a flag vai ativar
   result = sum2intscheck();
-  printf("%lld\n", result);
+  printf("%d\n", result);
 }
