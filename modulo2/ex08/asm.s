@@ -21,18 +21,29 @@ specialsum:
     # carregar os valores para os registos
     movb op8,%al
     movw op16,%bx
+    jo output_overflow
     
-    # adicionar a eax o ebx
+    # adicionar a A+B
     addl %ebx,%eax
-    # limpar ebx
-    movl $0,%ebx
+    jo output_overflow
 
-    # adicionar ambos valores 32bits a ebx
+    # (A+B-C)
     movl op32a,%ebx
-    movl op32b, %ecx
     subl %ebx,%eax
+    jo output_overflow
+
+    # (A+B-C)+D
+    movl op32b, %ecx
     addl %ecx, %eax
 
+    jmp fim
+
+    output_overflow:
+    movl $0,%eax
+    movl $0,%edx
+    jmp fim
+
+    fim:
 
     movl %ebp,%esp
     popl %ebp
