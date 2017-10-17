@@ -69,8 +69,9 @@ f3:
     jmp fim
 
 f3inc:
-    add %ebx, %eax
+    addl %ebx, %eax
     inc %ecx
+    movl $0, %edx
     div %ecx
 
     jmp fim
@@ -82,6 +83,34 @@ f3other:
     addl $2, %ebx
 
     div %ebx
+    jmp fim
+
+f4:
+    # prologue
+    pushl %ebp
+    movl %esp, %ebp
+
+    movl i, %eax
+    movl j, %ebx
+    movl j, %ecx
+
+    addl %eax, %ebx
+    movl $10, %edx
+    cmpl %edx, %ebx
+
+    jg f4greater
+
+    movl %ecx, %eax
+    movl $3, %ebx
+    movl $0, %edx
+    div %ebx
+
+    jmp fim
+
+f4greater:
+    movl $2, %ebx
+    mul %ebx
+
     jmp fim
 
 fim: # fim
