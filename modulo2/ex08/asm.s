@@ -38,13 +38,12 @@ specialsum:
 
     jmp fim
 
-    output_overflow:
+output_overflow:
     movl $0,%eax
     movl $0,%edx
     jmp fim
 
-    fim:
-
+fim:
     movl %ebp,%esp
     popl %ebp
 
