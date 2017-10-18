@@ -1,7 +1,7 @@
 #vars
-INCLUDES = asm.h
-SOURCES = asm.s main.c
-OBJFILES = asm.o main.o
+INCLUDES = asm.h functions.h
+SOURCES = asm.s functions.c main.c
+OBJFILES = asm.o functions.o main.o
 EXEC = main
 
 # regras de sufixo
