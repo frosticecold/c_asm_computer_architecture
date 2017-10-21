@@ -16,9 +16,13 @@ getArea:
     # area retangulo = comprimento * largura
     movl largura,%eax
     imul comprimento,%eax
-
+    jo overflow
+    
     jmp fim
 
+overflow:
+    movl $-1,%eax
+    jmp fim
 fim:
     # epilogue
     movl %ebp,%esp
