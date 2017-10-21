@@ -5,9 +5,9 @@
  .global op32b
 
  .section .text
-  .global specialsum
+  .global specialsumunsig
 
-specialsum:
+specialsumunsig:
     # prologue
     pushl %ebp
     movl %esp,%ebp
@@ -21,28 +21,27 @@ specialsum:
     # carregar os valores para os registos
     movb op8,%al
     movw op16,%bx
-    jo output_overflow
     
     # adicionar a A+B
-    addl %ebx,%eax
-    jo output_overflow
+    addw %bx,%ax
+    # não é preciso verificar o carry pois é um registo de 32bits
 
-    # (A+B-C)
+    # (A+B-C) vamos subtrair a (A+B)-C
     movl op32a,%ebx
     subl %ebx,%eax
-    jo output_overflow
-
-    # (A+B-C)+D
+    cmpl $0,%eax # caso o número seja negativo, então erro
+    jl erro_neg
+    # (A+B-C)+D senão vamos somar 
     movl op32b, %ecx
     addl %ecx, %eax
+    adc $0,%edx # caso houver carry, adicionar ao edx o carry
 
     jmp fim
-
-output_overflow:
+erro_neg:
     movl $0,%eax
-    movl $0,%edx
-    jmp fim
+    movl $0,%ebx
 
+    jmp fim
 fim:
     movl %ebp,%esp
     popl %ebp

@@ -15,23 +15,28 @@ swapBytes:
     pushl %ebp
     movl %esp,%ebp
 
-    mov num,%ax
-    mov %al,%bh
-    mov %ah,%bl
-    mov %bx,%ax
+    movl $0,%eax
+    movl $0,%ebx
+
+    movw num,%ax # mover o número a trocar para ax
+    movb %al,%bh # trocar os low bytes para os highbytes
+    movb %ah,%bl # trocar os high bytes para os low bytes
+    movw %bx,%ax # mover o resultado para ax
 
     movl %ebp,%esp
     popl %ebp
 
     ret 
-    
+
 concatBytes:
     # prologue
     pushl %ebp
     movl %esp,%ebp
 
-    mov ch1,%ah
-    mov ch2,%al
+    movl $0,%eax # limpar o registo eax
+
+    movb ch1,%ah # mover ch1 para ah
+    movb ch2,%al # mover ch2 para al
 
     movl %ebp,%esp
     popl %ebp
@@ -42,22 +47,26 @@ crossSumBytes:
     pushl %ebp
     movl %esp,%ebp
 
-    mov op1,%bx
-    mov op2,%cx
+    movl $0,%ebx # limpar o registo ebx
+    movl $0,%ecx # limpar o registo ecx
 
-    movl $0,%eax
-    movl $0,%edx
+    movw op1,%bx # mover op1 para bx
+    movw op2,%cx # mover op2 para cx
+
+    movl $0,%eax # limpar o registo eax
+    movl $0,%edx # limpar o registo edx
     
     
-    add %bh,%dh
-    add %cl,%dh
-    mov %dh,%ah
+    add %bh,%dh # vamos somar a dh o bh
+    add %cl,%dh # vamos somar a dh o bh
+                # a soma destes é ignorado o carry
+    mov %dh,%ah # mover dh para a ah sem problemas de carry
 
 
-    add %bl,%dl
-    add %ch,%dl
-
-    mov %dl,%al
+    add %bl,%dl # somar bl a dl
+    add %ch,%dl # somar bl a dl
+                # à soma destes dois é ignorado o carry
+    mov %dl,%al # mover dl para al sem problemas de carry
 
 
     # epilogue
