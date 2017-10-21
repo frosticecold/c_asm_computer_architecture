@@ -58,6 +58,7 @@ output:
 
 o_carry:
     movl $-1,%eax
+    jo o_overflow
     jmp fim
 
 o_overflow:
