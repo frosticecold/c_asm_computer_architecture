@@ -12,11 +12,16 @@ function: # A + ( B * C ) / D
     movl %esp,%ebp
 
     movl $0,%edx
+
+    # parentesis primeiro
     movl b,%eax
     imul c,%eax
     jo output_overflow
 
+    # divisao a segir
     idiv d,%eax
+
+    # finalmente a adicao
     addl a,%eax
     adc $0,%edx
 
@@ -25,13 +30,10 @@ function: # A + ( B * C ) / D
 output_overflow:
     movl $-1,%eax
     jmp fim
+
 fim:
     # epilogue
-
     movl %ebp,%esp
     popl %ebp
 
-    # o retorno é
-    # EAX
-    # H:L
     ret 

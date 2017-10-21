@@ -1,6 +1,6 @@
 .section .data
  .global code
- .global currentSal
+ .global currentSalary
 
 .section .text
   .global function
@@ -14,7 +14,7 @@ function: #
     # mover o codigo para ebx
     movl code, %ebx
     # mover o salario para eax
-    movl currentSal, %eax
+    movl currentSalary, %eax
 
     # caso seja codigo 101
     movl $101, %ecx
@@ -50,19 +50,22 @@ code103:
 othercodes:
     addl $50, %eax
     jmp output
+
 output:
     jc o_carry
     jo o_overflow
     jmp fim
+
 o_carry:
     movl $-1,%eax
     jmp fim
+
 o_overflow:
     movl $-1,%eax
     jmp fim
+
 fim: # fim
     # epilogue
-    # movl %ecx,%eax
     movl %ebp, %esp
     popl %ebp
 

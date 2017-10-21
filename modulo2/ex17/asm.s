@@ -1,6 +1,7 @@
 .section .data
  .global current
  .global desired
+
  VAR_DECREASE:
     .int 120
  VAR_INCREASE:
@@ -10,7 +11,6 @@
   .global function
 
 function: # 
-
     # prologue
     pushl %ebp
     movl %esp,%ebp
@@ -44,7 +44,6 @@ increase: # aumentar temperatura
 
 fim: # fim
     # epilogue
-    
     movl %ebp, %esp
     popl %ebp
 

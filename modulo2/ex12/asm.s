@@ -1,30 +1,27 @@
 .section .data
-    numa:
+    largura:
         .int 10
 
-    numb:
+    comprimento:
         .int 20
 
- .section .text
+.section .text
   .global getArea
+
 getArea:
     # prologue
     pushl %ebp
     movl %esp,%ebp
 
-    movl numa,%eax
-    imul numb,%eax
-
+    # area retangulo = comprimento * largura
+    movl largura,%eax
+    imul comprimento,%eax
 
     jmp fim
 
 fim:
     # epilogue
-
     movl %ebp,%esp
     popl %ebp
 
-    # o retorno é
-    # EAX
-    # H:L
     ret 

@@ -1,5 +1,5 @@
 .section .data
- .global op
+ .global num
 
 .section .text
   .global function
@@ -10,14 +10,20 @@ function: #
     pushl %ebp
     movl %esp,%ebp
 
-    movl op, %ebx
+    movl num, %ebx
     movl $0, %ecx
 
+    # compara num com 0 para saber se é positivo ou negativo
     cmpl %ecx, %ebx
     jg positive
     jl negative
+    
+    # retorna 0 se num for 0
+    movl $0, %eax
+    jmp fim
 
 positive:
+    # shift para a direita de 1
     shr %ebx
     # Se houver carry então é impar positivo
     jc odd_pos
@@ -27,6 +33,7 @@ positive:
     jmp fim
 
 negative:
+    # shift para a direita de 1
     shr %ebx
     # Se houver carry então é ímpar negativo
     jc odd_neg
@@ -47,8 +54,7 @@ odd_neg:
 
 fim: # fim
     # epilogue
-    # movl %ecx,%eax
     movl %ebp, %esp
-    popl %ebp
+    pnuml %ebp
 
     ret

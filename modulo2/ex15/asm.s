@@ -10,7 +10,6 @@
   .global modulus
 
 sum: # op1 + op2
-
     # prologue
     pushl %ebp
     movl %esp,%ebp
@@ -23,6 +22,7 @@ sum: # op1 + op2
     jmp fim
 
 subtract: # op1 - op2
+    # prologue
     pushl %ebp
     movl %esp,%ebp
 
@@ -34,7 +34,7 @@ subtract: # op1 - op2
     jmp fim
 
 multiply: # op1 * op2
-
+    #prologue
     pushl %ebp
     movl %esp,%ebp
 
@@ -46,7 +46,7 @@ multiply: # op1 * op2
     jmp fim
 
 divide: # op1 / op2
-
+    # prologue
     pushl %ebp
     movl %esp,%ebp
 
@@ -59,7 +59,7 @@ divide: # op1 / op2
     jmp fim
 
 modulus: # op1 % op2
-
+    # prologue
     pushl %ebp
     movl %esp,%ebp
 

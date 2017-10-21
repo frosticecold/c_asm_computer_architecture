@@ -1,33 +1,37 @@
 #include "asm.h"
 #include <stdio.h>
 
-int op=0;
+int num=0;
 int main() {
 
-    op = 12;
+    num = 12;
     int result = function();
 
 
-    printf("Num: %d Result: %d\n",op, result);
+    printf("Num: %d Result: %d\n",num, result);
 
-    op = -20;
+    num = -20;
     result = function();
 
-    printf("Num: %d Result: %d\n",op, result);
+    printf("Num: %d Result: %d\n",num, result);
 
-    op = 11;
-    result = function();
-
-
-    printf("Num: %d Result: %d\n",op, result);
-
-    op = -21;
+    num = 11;
     result = function();
 
 
-    printf("Num: %d Result: %d\n",op, result);
+    printf("Num: %d Result: %d\n",num, result);
+
+    num = -21;
+    result = function();
 
 
+    printf("Num: %d Result: %d\n",num, result);
 
+
+    num = 0;
+    result = function();
+
+
+    printf("Num: %d Result: %d\n",num, result);
 
 }
