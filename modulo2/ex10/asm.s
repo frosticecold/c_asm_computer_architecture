@@ -21,6 +21,7 @@ sum2intscheck:
 
     # se ativar a flag de overflow: -1
     jo com_overflow
+    # em números inteiros com sinal só ativa a flag de carry se somar -2147483647 com -1
     # se ativar a flag de carry: -2
     jc com_carry
     jmp fim

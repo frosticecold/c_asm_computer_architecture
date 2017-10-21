@@ -14,7 +14,7 @@ int main() {
    printf("%d + ( %d * %d ) / %d = %d\n",a,b,c,d,result);
 
    a=1000;
-   b=5000;
+   b=5000;s
    c=3500;
    d=10;
    // 10000 + (5000*3500) / 10 = 1751000
@@ -30,5 +30,12 @@ int main() {
    c=600000;
    d=10;
    result=function();
+   printf("%d + ( %d * %d ) / %d = %d\n",a,b,c,d,result);
+
+   a= 1000;
+   b= 10;
+   c = 10;
+   d = -5;
+   result=function(); // 1000 + (10*10) / -5 = 1000 - -20 = 980
    printf("%d + ( %d * %d ) / %d = %d\n",a,b,c,d,result);
 }
