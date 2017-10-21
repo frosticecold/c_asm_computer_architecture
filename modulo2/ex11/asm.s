@@ -25,12 +25,26 @@ isMultiple:
 
 edivisor:
     movl $1,%eax
-    jmp fim
+    jmp output
 
 naoedivisor:
     movl $0,%eax
+    jmp output
+
+output:
+    jo o_overflow
     jmp fim
 
+o_carry:
+    mov $0,%eax
+    mov $0,%edx
+    jo o_overflow
+    jmp fim
+
+o_overflow:
+    mov $0,%eax
+    mov $0,%edx
+    jmp fim
 fim:
     # epilogue
     movl %ebp,%esp

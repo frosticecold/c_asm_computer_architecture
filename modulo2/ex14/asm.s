@@ -13,7 +13,7 @@ function: # (((((num - 1) * 3) + 12) / 3 ) + 5 ) - num
     movl %eax, %ebx
 
     # num -1
-    dec %eax
+    decl %eax
 
     # (num - 1) * 3
     imul $3, %eax
@@ -22,8 +22,9 @@ function: # (((((num - 1) * 3) + 12) / 3 ) + 5 ) - num
     addl $12, %eax
 
     # (((num - 1) * 3) + 12) / 3
-    movb $3, %cl
-    divb %cl
+    movl $3, %ecx
+    movl $0, %edx
+    idivl %ecx
     
     # ((((num - 1) * 3) + 12) / 3 ) + 5
     addl $5, %eax
@@ -31,16 +32,24 @@ function: # (((((num - 1) * 3) + 12) / 3 ) + 5 ) - num
     # (((((num - 1) * 3) + 12) / 3 ) + 5 ) - num
     subl %ebx, %eax
 
-    jo output_overflow
+    jmp output
+
+output:
+    jo o_overflow
     jmp fim
 
-output_overflow:
-  movl $-1,%eax
-  jmp fim
+o_carry:
+    mov $0,%eax
+    jo o_overflow
+    jmp fim
 
+o_overflow:
+    mov $0,%eax
+    jmp fim
 fim:
     # epilogue
     movl %ebp,%esp
     popl %ebp
 
     ret 
+    

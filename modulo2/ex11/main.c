@@ -24,4 +24,11 @@ int main() {
   result = isMultiple();
   printf("Para %d/%d é multiplo?\n",op32a,op32b);
   printf("É multiplo:%d\n",result);
+
+
+  op32a = 700000;
+  op32b = 30000000;
+  result = isMultiple();
+  printf("Para %d/%d é multiplo?\n",op32a,op32b);
+  printf("É multiplo:%d\n",result);
 }

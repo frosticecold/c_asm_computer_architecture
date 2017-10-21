@@ -16,7 +16,6 @@ function: # A + ( B * C ) / D
     # parentesis primeiro
     movl b,%eax
     imul c,%eax
-    jo output_overflow
 
     # divisao a segir
     idiv d,%eax
@@ -25,15 +24,24 @@ function: # A + ( B * C ) / D
     addl a,%eax
     adc $0,%edx
 
+    jmp output
+
+output:
+    jo o_overflow
     jmp fim
 
-output_overflow:
-    movl $-1,%eax
+o_carry:
+    mov $0,%eax
+    jo o_overflow
     jmp fim
 
+o_overflow:
+    mov $0,%eax
+    jmp fim
 fim:
     # epilogue
     movl %ebp,%esp
     popl %ebp
 
     ret 
+    
