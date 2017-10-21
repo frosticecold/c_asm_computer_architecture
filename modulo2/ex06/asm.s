@@ -12,23 +12,28 @@ swapBytes:
     pushl %ebp
     movl %esp,%ebp
 
-    mov num,%ax
-    mov %al,%bh
-    mov %ah,%bl
-    mov %bx,%ax
+    movl $0,%eax
+    movl $0,%ebx
+
+    movw num,%ax # mover o número a trocar para ax
+    movb %al,%bh # trocar os low bytes para os highbytes
+    movb %ah,%bl # trocar os high bytes para os low bytes
+    movw %bx,%ax # mover o resultado para ax
 
     movl %ebp,%esp
     popl %ebp
 
     ret 
-    
+
 concatBytes:
     # prologue
     pushl %ebp
     movl %esp,%ebp
 
-    mov ch1,%ah
-    mov ch2,%al
+    movl $0,%eax # limpar o registo eax
+
+    movb ch1,%ah # mover ch1 para ah
+    movb ch2,%al # mover ch2 para al
 
     movl %ebp,%esp
     popl %ebp

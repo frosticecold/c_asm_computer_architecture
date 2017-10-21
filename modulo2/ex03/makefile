@@ -22,5 +22,6 @@ ${OBJFILES} : ${SOURCES} ${INCLUDES}
 
 run: ${EXEC}
 	./${EXEC}
+	
 clean:
 	rm -f ${OBJFILES} ${EXEC}
