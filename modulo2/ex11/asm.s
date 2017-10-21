@@ -14,7 +14,7 @@ isMultiple:
 
     movl op32a,%eax
     movl op32b,%ebx
-    idiv %ebx
+    idivl %ebx
 
     # so vai ser divisor se o resto for 0
     # o resto encontra-se em %edx
