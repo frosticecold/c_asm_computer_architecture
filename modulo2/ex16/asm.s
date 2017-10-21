@@ -59,7 +59,7 @@ floop:
     jmp floop 
 
 output_overflow:
-    movl $-1,%eax
+    movl $0,%eax
     jmp fim
 
 fim: # fim
