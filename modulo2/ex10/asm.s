@@ -19,11 +19,11 @@ sum2intscheck:
     movl op32a,%eax
     addl op32b,%eax
 
-    # se ativar a flag de overflow: -1
-    jo com_overflow
-    # em números inteiros com sinal só ativa a flag de carry se somar -2147483647 (o limite do complento para 2) com outro número negativo
     # se ativar a flag de carry: -2
     jc com_carry
+    # se ativar a flag de overflow: -1
+    jo com_overflow
+
     jmp fim
 
 com_overflow:
@@ -32,6 +32,7 @@ com_overflow:
 
 com_carry:
     movl $-2,%eax
+    jo com_overflow
     jmp fim
     
 fim:
