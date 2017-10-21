@@ -24,7 +24,7 @@ function: #
 
 positive:
     # shift para a direita de 1
-    shr %ebx
+    shrl %ebx
     # Se houver carry então é impar positivo
     jc odd_pos
 
@@ -34,7 +34,7 @@ positive:
 
 negative:
     # shift para a direita de 1
-    shr %ebx
+    shrl %ebx
     # Se houver carry então é ímpar negativo
     jc odd_neg
 
@@ -55,6 +55,6 @@ odd_neg:
 fim: # fim
     # epilogue
     movl %ebp, %esp
-    pnuml %ebp
+    popl %ebp
 
     ret
