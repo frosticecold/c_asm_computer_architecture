@@ -11,6 +11,7 @@ int main() {
     //Numero junto 00001010 00001010
     //Resultado 2570
     res= concatBytes();
+    printf("ch1=%d ch2=%d\n",ch1,ch2);
     printf("O resultado do teste 1:%hd\n",res);
 
     //00001011
@@ -19,6 +20,7 @@ int main() {
     ch2= 12;
     //Resultado 00001011 00001100
     //2828
+    printf("ch1=%d ch2=%d\n",ch1,ch2);
     res= concatBytes();
     printf("O resultado do teste 2:%hd\n",res);
 }
