@@ -8,6 +8,7 @@ int j=0;
 int h=0;
 int main() {
 
+    // Funções implementadas em assembly
     printf("Assembly\nf()\n");
     i = 101;
     j = 101;
@@ -63,6 +64,7 @@ int main() {
     
     printf("I: %d J: %d R: %d\n",i, j, h);
 
+    // Funções implementadas em C
     printf("\n\nC\nf()\n");
     i = 101;
     j = 101;
