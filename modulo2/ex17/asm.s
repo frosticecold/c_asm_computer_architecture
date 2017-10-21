@@ -29,19 +29,26 @@ function: #
     jl decrease
 
 decrease: # descer temperatura
-    sub %edx,%ebx
+    subl %edx,%ebx
     movl %ebx, %eax
     movl VAR_DECREASE, %ecx
-    mul %ecx
+    imul %ecx
+    jo output_overflow
     jmp fim
 
 increase: # aumentar temperatura
-    sub %ebx,%edx
+    subl %ebx,%edx
     movl %edx, %eax
     movl VAR_INCREASE, %ecx
-    mul %ecx
+    imul %ecx
+    jo output_overflow
     jmp fim
 
+output_overflow:
+    movl $0,%eax
+    jmp fim
+
+    ret
 fim: # fim
     # epilogue
     movl %ebp, %esp
