@@ -1,7 +1,7 @@
 #vars
-INCLUDES = asm.h
-SOURCES = asm.s main.c
-OBJFILES = asm.o main.o
+INCLUDES = sum.h subtract.h multiply.h divide.h modulus.h
+SOURCES = sum.s subtract.s multiply.s divide.s modulus.s main.c
+OBJFILES = sum.o subtract.o multiply.o divide.o modulus.o main.o
 EXEC = main
 
 # regras de sufixo
