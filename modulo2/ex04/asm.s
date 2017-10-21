@@ -4,7 +4,7 @@
  .global res
 
 CONST:
-    .long 10
+    .int 10
 
 .section .text
  .global sum # int sum(void)
@@ -27,30 +27,30 @@ sumsub:
     # prologue
     pushl %ebp
     movl %esp, %ebp
-    movl op1, %ebx
-    movl op2, %eax
-    movl op3, %ecx
-    addl %ebx, %eax
-    subl %ecx, %eax
+    movl op1, %ebx # mover o operador 1 para ebx
+    movl op2, %eax # mover o operador 2 para eax
+    movl op3, %ecx # mover o operador 3 para ecx
+    addl %ebx, %eax # op1 + op2
+    subl %ecx, %eax # (op1 + op2) - op3
 
     movl %ebp, %esp # restore the previous stack pointer ("clear" the stack)
     popl %ebp # restore the previous stack frame pointer
     ret
 subconst:
-    #prologue
+    # prologue
     pushl %ebp
     movl %esp, %ebp
 
-    movl op1, %ebx
-    subl CONST,%ebx
+    movl op1, %ebx  # carregar op1 para ebx
+    subl CONST,%ebx # subtrair a op1 o valor constante
 
-    movl op2, %ecx
-    movl CONST,%edx
+    movl op2, %ecx # carregar op2 para ecx
+    movl CONST,%edx # carregar const para edx
 
-    subl %ecx,%edx
+    subl %ecx,%edx # (CONST - op2)
 
-    subl %edx,%ebx
-    movl %ebx,%eax
+    subl %edx,%ebx # subtrair a (op1-const) - (const - op2)
+    movl %ebx,%eax # mover resultado para eax
 
     movl %ebp, %esp
     popl %ebp

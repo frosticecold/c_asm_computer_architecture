@@ -24,11 +24,11 @@ sumsub:
     # prologue
     pushl %ebp
     movl %esp, %ebp
-    movl op1, %ebx
-    movl op2, %eax
-    movl op3, %ecx
-    addl %ebx, %eax
-    subl %ecx, %eax
+    movl op1, %ebx # mover o operador 1 para ebx
+    movl op2, %eax # mover o operador 2 para eax
+    movl op3, %ecx # mover o operador 3 para ecx
+    addl %ebx, %eax # op1 + op2
+    subl %ecx, %eax # (op1 + op2) - op3
 
     movl %ebp, %esp # restore the previous stack pointer ("clear" the stack)
     popl %ebp # restore the previous stack frame pointer

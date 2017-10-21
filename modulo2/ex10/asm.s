@@ -28,7 +28,7 @@ com_overflow:
     movl $-1,%eax
     jmp fim
 com_carry:
-    movl $1,%eax
+    movl $-2,%eax
     jmp fim
 fim:
 
