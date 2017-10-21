@@ -15,7 +15,7 @@ int main() {
 
   op32a = 500000;
   op32b = 10000;
-  // Rsultado 510 000
+  // Rsultado 510 000s
   result = sum2intscheck();
   printf("%d\n", result);
 
@@ -28,8 +28,8 @@ int main() {
 
   op32a = -2147483647;
   op32b = -1;
-  //2147483647 + 1
-  //6442450941 overflow, a flag vai ativar
+  //-2147483647 - 1
+  //Aqui vai dar carry
   result = sum2intscheck();
   printf("%d\n", result);
 
