@@ -17,8 +17,9 @@ int main() {
   // 0000 0000 + 0001 0100 = 0001 0100 High byte
   // 0000 1010 + 0000 0000 = 0000 1010 low byte
   // 0001 0100 0000 1010 = 5130
+  printf("Para op1=%d e op2=%d\n",op1,op2);
   short int result = crossSumBytes();
-  printf("%hd\n", result);
+  printf("CrossSumBytes: %hd\n", result);
 
   op1 = 1000; // 0000 0011 1110 1000
   op2 = 2000; // 0000 0111 1101 0000
@@ -27,6 +28,7 @@ int main() {
   // Result: 1101 0011 1110 1111
   // Vai ser negativo
   //-11281
+  printf("\nPara op1=%d e op2=%d\n",op1,op2);
   result = crossSumBytes();
-  printf("%hd\n", result);
+  printf("CrossSumBytes: %hd\n", result);
 }
