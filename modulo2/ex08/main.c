@@ -13,7 +13,7 @@ int main() {
     op32a = 30000;  //30894 - 30000 = 894
     op32b = 4294967295;  //894 + 4294967295 = 4294968189
     unsigned long long result = specialsumunsig();    // op1 + op2 - op3 + op4
-
+    printf("Para %u + %u - %u + %u\n",op8,op16,op32a,op32b);
     printf("%llu\n",result);
 
     op8=127;
@@ -24,6 +24,7 @@ int main() {
     // 127 + 30000 - 100000 + 2147483647 = erro
     //  -69873 + 2147483647 = erro, número negativo
     // função vai retornar zero, não garante números negativos
+    printf("\nPara %u + %u - %u + %u\n",op8,op16,op32a,op32b);
     result = specialsumunsig();
     printf("%llu\n",result);
 
