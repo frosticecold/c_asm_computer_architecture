@@ -1,2 +1,3 @@
-ex16)Foi entendido que deveria-se fazer o somatÃ³rio da operaÃ§Ã£o toda
+ex15)Problema de entendimento se no referido exercicio é para dividir em multiplos ficheiros .s ou várias funções dentro de um ficheiro .s
+ex16)Foi entendido que deveria-se fazer o somatório da operação toda
 Sum (i*(A/B))
