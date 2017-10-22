@@ -1,0 +1,2 @@
+ex16)Foi entendido que deveria-se fazer o somatório da operação toda
+Sum (i*(A/B))
