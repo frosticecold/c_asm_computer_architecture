@@ -13,8 +13,8 @@ space_count:           # function start
     movl ptr1,%esi  # copy str address to %esi (notice the $)
     movl $0,%eax    # counter = 0
 
-cnt_loop:    
-    cmpb $0,(%esi)      # check if this is the end of the string
+cnt_loop:
+    cmpb $0,(%esi)   # check if this is the end of the string
     jz cnt_loop_end  # jump if it is the end
     cmpb $' ',(%esi)
     je increment
@@ -26,9 +26,9 @@ increment:
     incl %esi
     jmp cnt_loop
 
-cnt_loop_end:    				
+cnt_loop_end:			
     # note: return value (counter) in %eax
-# epilogue
+    # epilogue
     movl %ebp, %esp  # restore the stack pointer ("clear" the stack)
     popl %esi
     popl %ebp        # restore the stack frame pointer
