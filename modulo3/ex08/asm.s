@@ -1,5 +1,5 @@
 .section .bss
- .comm ptrvec, 4
+ .comm ptrvec, 24
  .global ptrvec
  .global num
  .global even
@@ -18,11 +18,15 @@ test_even:           # function start
     movl even, %ecx
     shr %cl
     jnc even_label
-    jmp end
+    movl %ebp, %esp  # restore the stack pointer ("clear" the stack)
+    popl %ebp        # restore the stack frame pointer
+    ret  
 
 even_label:
     movl $1, %eax
-    jmp end
+    movl %ebp, %esp  # restore the stack pointer ("clear" the stack)
+    popl %ebp        # restore the stack frame pointer
+    ret
 
 vec_sum_even:           # function start      
 # prologue
@@ -35,30 +39,28 @@ vec_sum_even:           # function start
     movl $0, %edx
 
 iterate:
-    movl (%esi), even
+    movl (%esi), %eax
+    movl %eax, even
+    pushl %ecx
     call test_even
-    cmpb $1, %eax
+    popl %ecx
+    cmpl $1, %eax
     je sum
     addl $4, %esi
     loop iterate
 
+    cmpl $0, %ecx
+    je end
+
 sum:
     addl (%esi), %edx
     addl $4, %esi
-    decl %ecx
-    jmp iterate
+    loop iterate
 
-end_sum_vec:
-# epilogue
+end:
+    movl %edx, %eax
     movl %ebp, %esp  # restore the stack pointer ("clear" the stack)
     popl %esi
     popl %ebp        # restore the stack frame pointer
-    ret  
+    ret
     
-
-end:    				
-    # note: return value (counter) in %eax
-# epilogue
-    movl %ebp, %esp  # restore the stack pointer ("clear" the stack)
-    popl %ebp        # restore the stack frame pointer
-    ret  
