@@ -11,11 +11,11 @@
 test_even:           # function start      
 # prologue
     pushl %ebp       # save previous stack frame pointer
-    movl %esp, %ebp  # the stack frame pointer for our function
-# body        
-    movl $0, %eax
+    movl %esp, %ebp  # the stack frame pointer for our function  
+
     movl $0, %ecx
     movl even, %ecx
+    movl $0, %eax
     shr %cl
     jnc even_label
     movl %ebp, %esp  # restore the stack pointer ("clear" the stack)
