@@ -32,20 +32,20 @@ loop_array:
     movl (%esi,%edx,4),%ebx # mover o primeiro numero para ebx
     incl %edx # incrementar o indice
     cmpl %ebx,(%esi,%edx,4) # comparar se o 1º número é menor que o a seguir
-    jle reloop # senão volta ao loop
+    jle reloop # senão reloop
     movl (%esi,%edx,4),%ebx # senão mover o próximo número para o ebx
     incl %edx
     cmpl %ebx,(%esi,%edx,4) # comparar se o 2º segundo número é menor que o 3º
-    jle reloop
-    decl %edx
-    incl %eax
-    loop loop_array
-    jmp iterate_end
+    jle reloop # se menor então reloop
+    decl %edx # decrementa um indice
+    incl %eax # então é porque encontra-mos uma sequencia, incrementar
+    loop loop_array # loop
+    jmp iterate_end # ir para o fim
 
 reloop:
-    decl %ecx
-    incl %edx
-    cmpl $0,%ecx
+    decl %ecx # decrementar o contador
+    incl %edx # incrementar edx para ser indíce para o próximo número
+    cmpl $0,%ecx # se ecx = 0 então acabou senão, voltar ao loop
     jge loop_array
 iterate_end:
     popl %esi
