@@ -1,5 +1,5 @@
 .section .bss
-    .comm ptrvec,4
+    .comm ptrvec,2
     .global ptrvec
 
 .section .data
@@ -14,23 +14,23 @@ vec_zero:
 
     pushl %esi
 
-    movl $1000,%edx
+    movw $1000,%dx
     movl num,%ecx
     movl ptrvec,%esi
     movl $0, %eax
 
 iterate:
-    cmpl %edx, (%esi)
+    cmpw %dx, (%esi)
     jge count
-    addl $4,%esi
+    addl $2,%esi
     loop iterate
 
     jmp fim
 
 count:
-    movl $0, (%esi)
+    movw $0, (%esi)
     incl %eax
-    addl $4,%esi
+    addl $2,%esi
     loop iterate
 
 fim:
