@@ -12,6 +12,10 @@ int main() {
   ptrdest = vec;
 
   int i;
+  printf("{ ");
+  for (i = 0; i < num; i++) {
+    printf("%d%s", array[i], (i < num - 1) ? ", " : "}\n");
+  }
   int res = sort_without_reps();
   printf("Number of items in the second array: [%d]\n", res);
   printf("{ ");
