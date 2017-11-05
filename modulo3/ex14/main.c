@@ -7,6 +7,11 @@ short int x;
 short int array2[] = {1, 2, 2, 4, 5, 1, 2};
 
 int main() {
+  printf("{");
+  int i;
+  for(i=0; i < num ; i++){
+    printf("%d%s",array[i],(i<num-1)?", ":"}\n");
+  }
   x = 5;
   ptrvec = array;
   int result = exists();
@@ -28,7 +33,10 @@ int main() {
   result = exists();
   printf("Para %d Existem duplicados? %d\n",x,result);
 
-
+  printf("\n{");
+  for(i=0; i < num; i++){
+    printf("%d%s",array2[i],(i<num-1)?", ":"}\n");
+  }
   ptrvec=array2;
   result = vec_diff();
   printf("Existem %d números diferentes \n", result);
