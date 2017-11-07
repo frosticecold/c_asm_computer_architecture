@@ -9,8 +9,12 @@ int main() {
   ptrvec = array;
 
   int i;
+  printf("Desordenado:{ ");
+  for (i = 0; i < num; i++) {
+    printf("%d%s", array[i], (i < num - 1) ? ", " : "}\n");
+  }
   array_sort();
-  printf("{ ");
+  printf("Ordenado:{ ");
   for (i = 0; i < num; i++) {
     printf("%d%s", array[i], (i < num - 1) ? ", " : "}\n");
   }

@@ -59,6 +59,7 @@ vec_diff:
     pushl %ebp
     movl %esp,%ebp
 
+    pushl %ebx
     pushl %esi
 
     movl ptrvec,%esi
@@ -89,8 +90,10 @@ increment_diff:
     jmp diff_exit
 
 diff_exit:
-
     movl %ebx,%eax
+
+    popl %esi
+    popl %ebx
 
     movl %ebp,%esp
     popl %ebp

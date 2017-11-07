@@ -6,10 +6,13 @@ int arrayfreq[21] = {0};
 int* ptrgrades = array;
 int* ptrfreq = arrayfreq;
 int main(){
-
-    frequencies();
-    printf("{");
     int i;
+    printf("Notas: \n{");
+    for(i=0;i < num; i++){
+        printf("%d%s",array[i],(i<num-1)? "," : "}\n");
+    }
+    frequencies();
+    printf("\nFrequencia das notas: \n{");
     for(i=0;i < 20; i++){
         printf("%d%s",arrayfreq[i],(i<19)? "," : "}\n");
     }
