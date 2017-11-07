@@ -4,7 +4,7 @@ square:
     # prologue
     pushl %ebp
     movl %esp, %ebp
-    movl 8(%esp), %eax       # 1st parameter
+    movl 8(%ebp), %eax       # 1st parameter
     imull %eax, %eax
     # epilogue
     movl %ebp , %esp
