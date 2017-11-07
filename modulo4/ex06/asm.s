@@ -1,17 +1,34 @@
-.global dec_cube
+.global test_equal
 
-dec_cube:
+test_equal:
     # prologue
     pushl %ebp
     movl %esp, %ebp
     
-    movl 8(%ebp), %ecx      # 1st parameter (num1)
-    movl 12(%ebp), %eax     # 2nd parameter (num2)
-    decl (%ecx)
-    movl %eax, %edx
-    imull %edx, %eax
-    imull %edx, %eax
+    movl 8(%ebp), %esi      # 1st parameter (*a)
+    movl 12(%ebp), %edi     # 2nd parameter (*b)
+    
+iterate:
+    movl $0, %edx
+    cmpl $0, (%esi)
+    jz endEqual
+    movl (%edi), %edx
+    cmpl (%esi), %edx
+    jne endNotEqual
+    incl %esi
+    incl %edi
+    jmp iterate
+    
+endEqual:
     # epilogue
-    movl %ebp , %esp
+    movl $1, %eax
+    movl %ebp, %esp
+    popl %ebp
+    ret
+
+endNotEqual:
+    # epilogue
+    movl $0, %eax
+    movl %ebp, %esp
     popl %ebp
     ret
