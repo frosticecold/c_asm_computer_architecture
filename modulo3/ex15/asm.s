@@ -6,21 +6,18 @@
 array_sort:
     pushl %ebp
     movl %esp,%ebp
-    
+    pushl %esi
     movl num,%ecx
     decl %ecx
     movl ptrvec,%esi
 outerloop:
-    pushl %eax
     pushl %ecx
-    pushl %edx
     call innerfunction
-    popl %edx
     popl %ecx
-    popl %eax
     loop outerloop
 
 outer_exit:
+    popl %esi
     movl %ebp,%esp
     popl %ebp
 
