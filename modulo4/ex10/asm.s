@@ -13,7 +13,7 @@ count_bits_zero_assembly:
 
 shifting:
     shl %eax
-    jnc skip_inc
+    jc skip_inc
     incl -4(%ebp)
 
 skip_inc:
