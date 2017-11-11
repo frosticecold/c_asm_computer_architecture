@@ -18,4 +18,9 @@ int main(){
     int2bin(result,str,32);
     printf("%s\n",str);
     printf("Número:%d\n",result);
+
+    result = activate_invert_bits(a,left,right);
+    int2bin(result,str,32);
+    printf("%s\n",str);
+    printf("Número:%d\n",result);
 }

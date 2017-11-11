@@ -1,4 +1,5 @@
 .global activate_bits_asm
+.global activate_invert_bits
 activate_bits_asm:
     pushl %ebp
     movl %esp,%ebp
@@ -29,3 +30,18 @@ mask_right:
     popl %ebp
     ret
 
+activate_invert_bits:
+    pushl %ebp
+    movl %esp,%ebp
+
+    pushl 16(%ebp)
+    pushl 12(%ebp)
+    pushl 8(%ebp)
+    call activate_bits_asm
+    addl $12,%esp
+
+    notl %eax
+
+    movl %ebp,%esp
+    popl %ebp
+    ret
