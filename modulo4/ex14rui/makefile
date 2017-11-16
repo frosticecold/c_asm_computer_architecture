@@ -1,7 +1,7 @@
 #vars
-INCLUDES = asm.h join_bits.h int2bin.h
-SOURCES = asm.s join_bits.c int2bin.c main.c
-OBJFILES = asm.o join_bits.o int2bin.o main.o
+INCLUDES = asm.h join_bits.h mixedsum.h
+SOURCES = asm.s mixedsum.s join_bits.c main.c
+OBJFILES = asm.o mixedsum.o join_bits.o main.o
 EXEC = main
 
 # regras de sufixo
