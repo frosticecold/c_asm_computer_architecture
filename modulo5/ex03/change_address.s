@@ -12,6 +12,10 @@ change_address:
     # epilogo
     pushl %ebp
     movl %esp,%ebp
+    
+    # callee save
+    pushl %esi 
+    pushl %edi
 
     movl 8(%ebp),%esi   # apontador para struct student
     movl 12(%ebp),%edi  # apontador para a string newaddress
@@ -26,8 +30,13 @@ change_address:
     incl %esi                       # incrementar esi
     jmp .loop_cpy                   # jump .loop_cpy
 end:
+
+    # callee save
+    popl %edi
+    popl %esi
+
     # prologo
     movl %ebp,%esp
     popl %ebp
     ret
-    # fim
+    
