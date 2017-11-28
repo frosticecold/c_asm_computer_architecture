@@ -9,7 +9,7 @@
 .global change_address
 # void change_address(Student *s, char *new_address);
 change_address:
-    # epilogo
+    # prologo
     pushl %ebp
     movl %esp,%ebp
     
@@ -35,7 +35,7 @@ end:
     popl %edi
     popl %esi
 
-    # prologo
+    # epilogo
     movl %ebp,%esp
     popl %ebp
     ret
