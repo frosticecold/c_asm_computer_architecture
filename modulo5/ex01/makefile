@@ -25,3 +25,6 @@ run: ${EXEC}
 
 clean:
 	rm -f ${OBJFILES} ${EXEC}
+
+vg:
+	valgrind ./${EXEC}
