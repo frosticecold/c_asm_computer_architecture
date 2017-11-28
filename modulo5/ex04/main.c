@@ -1,7 +1,6 @@
 #include "save_grades.h"
 #include "student.h"
 #include <stdio.h>
-#include <stdlib.h>
 
 void printstruct(Student *p) {
   printf("Name:%s\n", p->name);
