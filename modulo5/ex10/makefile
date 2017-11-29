@@ -1,7 +1,7 @@
 #vars
-INCLUDES = search_matrix.h
-SOURCES = search_matrix.c main.c
-OBJFILES = search_matrix.o main.o
+INCLUDES = search_matrix.h create_matrix.h
+SOURCES = search_matrix.c create_matrix.c main.c
+OBJFILES = search_matrix.o create_matrix.o main.o
 EXEC = main
 
 # regras de sufixo
