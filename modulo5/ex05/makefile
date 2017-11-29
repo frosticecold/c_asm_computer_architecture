@@ -1,7 +1,7 @@
 #vars
-INCLUDES = student.h find_greater.h
-SOURCES = find_greater.s main.c
-OBJFILES = find_greater.o main.o
+INCLUDES = student.h find_greater.h save_grades.h
+SOURCES = find_greater.s save_grades.s main.c
+OBJFILES = find_greater.o save_grades.o main.o
 EXEC = main
 
 # regras de sufixo
