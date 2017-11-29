@@ -25,7 +25,7 @@ int main() {
   int res = find_greater(&student, 15, greater_grades);
   printf("%d\n",res);
 
-  for(int i=0; i<5; i++) {
+  for(int i=0; i<res; i++) {
     printf("%d ",greater_grades[i]);
   }
   printf("\n");
