@@ -20,7 +20,6 @@ void printstruct(s2 *s) {
 
 int main() {
   s2 s; //Estrutura s2
-  printstruct(&s);
   short v[3] = {1, 2, 3};   // Vetor de shorts a copiar
   int j = 1337;             // Inteiro a copiar
   char c[3] = {'Z', 'X', 'C'};  //Vetor de chars a copiar
