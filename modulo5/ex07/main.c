@@ -2,7 +2,7 @@
 #include "save_data.h"
 #include <stdio.h>
 
-void printstruct(s2 *s) {
+void printstruct(s2 *s) {//Método para imprimir a estrutura s2
   int i;
   int n = 3;
   printf("A imprimir a estrutura s2\n\n");
