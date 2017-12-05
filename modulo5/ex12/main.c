@@ -24,6 +24,8 @@ int main() {
 
   //Somar as matrzies
   int **m2 = sum_matrixes(m,m1,p,q);
+  
+  //Imprimir as matrizes
   printf("Matrix 1\n");
   printMatrix(m,p,q);
   printf("Matrix 2\n");
