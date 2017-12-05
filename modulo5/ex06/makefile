@@ -10,7 +10,7 @@ EXEC = main
 # como transformar um .c num .o ; $< --nome do ficheiro
 .c.o:
 	gcc -Wall -g -c $<
-	
+
 # como transformar um .s num .o ; $< --nome do ficheiro
 .s.o:
 	gcc -Wall -g -c $<
