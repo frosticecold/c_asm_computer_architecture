@@ -5,7 +5,7 @@
 char *create_str(char str[80]) {
   int len = strlen(str);
   char *s = NULL;
-  s = (char *)calloc(len + 1,1);
+  s = (char *)calloc(len + 1,sizeof(char));
   if (s != NULL) {
     strncpy(s, str, len);
     return s;
