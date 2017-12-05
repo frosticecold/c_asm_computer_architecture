@@ -3,22 +3,15 @@
 #include "student.h"
 #include "find_greater.h"
 #include "save_grades.h"
-
-void printstruct(Student *p) {
-  int i;
-  printf("Name:%s\n", p->name);
-  printf("Age:%d Number:%d\n", p->age, p->number);
-  printf("Address: %s\n", p->address);
-  printf("Grades: [ ");
-  for(i=0; i<10; i++) {
-	  printf("%d ",p->grades[i]);
-  }
-  printf("]\n");
-}
+#include "save_data.h"
 
 int main() {
 
   Student student;
+  Student *s = &student; // Apontador para a estrutura
+  char nome[80] = "Ana Maria";
+  char address[120] = "Do not change me";
+  save_data(s,15, 1, nome, address);
   
   int vec[10] =  {18,16,13,14,17,19,12,10,17,14};
   int *new_grades = vec;
