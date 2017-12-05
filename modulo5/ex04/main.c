@@ -9,9 +9,9 @@ int main() {
 
   Student student;       // Declarar estaticamente um estudante
   Student *s = &student; // Apontador para a estrutura
-  char nome[80] = "Ana Maria";
-  char address[120] = "Do not change me";
-  save_data(s,15, 1, nome, address);
+  char nome[80] = "Ana Maria";//Nome do student
+  char address[120] = "Do not change me";//Morada do student
+  save_data(s,15, 1, nome, address);//Guardar a info na estrutura
 
   int vec[N] = {18, 16, 13, 14, 17, 19, 12, 10, 17, 14}; 
   int *new_grades = vec;
