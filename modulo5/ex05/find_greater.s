@@ -1,10 +1,10 @@
 .section .data
-    .equ TOTAL_SIZE,248
-    .equ AGE_OFFSET,0
-    .equ NUMBER_OFFSET,4
-    .equ GRADES_OFFSET,8
-    .equ NAME_OFFSET,48
-    .equ ADDRESS_OFFSET,128
+    .equ TOTAL_SIZE,248 # Tamanho da estrutura em bytes
+    .equ AGE_OFFSET,0   # Offset da idade
+    .equ NUMBER_OFFSET,4 # Offset do número
+    .equ GRADES_OFFSET,8 # Offset das notas
+    .equ NAME_OFFSET,48  # Offset dos nomes
+    .equ ADDRESS_OFFSET,128 # Offset da morada
 
 .global find_greater
 

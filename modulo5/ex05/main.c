@@ -19,7 +19,7 @@ int main() {
   
   printstruct(&student);
 
-  int vec1[4];
+  int vec1[10];
   int *greater_grades = vec1;
 
   int res = find_greater(&student, 15, greater_grades);
